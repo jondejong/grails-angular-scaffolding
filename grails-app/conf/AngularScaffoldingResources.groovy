@@ -8,19 +8,16 @@ modules = {
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-${fileVersion}.js"], nominify: true
     }
 
-    'angular-ui' {
-        dependsOn 'angular'
-        resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-ui.js"], nominify: true
-    }
-
     'angular-resource' {
-		dependsOn 'angular-ui'
+        dependsOn 'angular'
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-resource-${fileVersion}.js"], nominify: true
     }
 
     'angular-scaffolding' {
-        dependsOn 'jquery', 'angular-resource'
+        dependsOn 'angular-resource'
+        resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-ui.js"], nominify: true
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js', file: 'scaffolding.js']
+        resource id: 'css', url: [plugin: 'angular-scaffolding', dir: 'css', file: 'angular-ui.css']
         resource id: 'css', url: [plugin: 'angular-scaffolding', dir: 'css', file: 'scaffolding.css']
     }
 
