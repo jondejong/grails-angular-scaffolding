@@ -3,17 +3,18 @@ import grails.util.GrailsUtil
 def fileVersion = GrailsUtil.isDevelopmentEnv() ? '1.0.6' : '1.0.6.min'
 
 modules = {
-    angularui {
-        resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-ui.js"], nominify: true
-    }
 
     angular {
-        dependsOn 'angularui'
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-${fileVersion}.js"], nominify: true
     }
 
+    'angular-ui' {
+        dependsOn 'angular'
+        resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-ui.js"], nominify: true
+    }
+
     'angular-resource' {
-		dependsOn 'angular'
+		dependsOn 'angular-ui'
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-resource-${fileVersion}.js"], nominify: true
     }
 
