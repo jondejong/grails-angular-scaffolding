@@ -8,7 +8,7 @@ modules = {
     }
 
     angular {
-        dependsOn 'angular-ui'
+        dependsOn 'angularui'
         resource id: 'js', url: [plugin: 'angular-scaffolding', dir: 'js/angular', file: "angular-${fileVersion}.js"], nominify: true
     }
 
